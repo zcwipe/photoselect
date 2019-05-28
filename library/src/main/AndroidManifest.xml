@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zcwipe.photoselector">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Holo.NoActionBar">
+        <activity
+            android:name=".PhotoSelectorActivity"
+            android:label="图片选择"
+            android:screenOrientation="portrait">
+        </activity>
+
+
+        <activity
+            android:name=".PhotoPreviewActivity"
+            android:label="图片浏览"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

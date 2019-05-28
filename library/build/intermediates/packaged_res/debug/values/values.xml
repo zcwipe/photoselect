@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF9602</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="color_theme_bg_a">#F6F6F6</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="albumitem_content_height">80dp</dimen>
+    <dimen name="albumitem_height">100dp</dimen>
+    <dimen name="albumitem_image_height">20dp</dimen>
+    <dimen name="checkbox_height">25dp</dimen>
+    <dimen name="collection_photo_toolbar_height">45dp</dimen>
+    <dimen name="gridview_item_horizontalSpacing">4dp</dimen>
+    <dimen name="gridview_item_verticalSpacing">4dp</dimen>
+    <dimen name="layout_title_content_heigh">30dp</dimen>
+    <dimen name="layout_title_heigh">45dp</dimen>
+    <dimen name="layout_title_mini_textsize">16sp</dimen>
+    <string name="app_name">PhotoSelector</string>
+    <style name="AnimationFadeBottomToTop">
+        <item name="android:windowEnterAnimation">@anim/anim_bookshelf_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_bookshelf_dialog_exit</item>
+    </style>
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <!-- 设置浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置完全透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 设置屏幕变暗 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="CustomProgressDialog" parent="CustomDialog">
+
+    </style>
+</resources>
