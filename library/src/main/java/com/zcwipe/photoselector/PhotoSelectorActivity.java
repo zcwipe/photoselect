@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.GridView;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zcwipe.photoselector.adapter.GridViewAdapter;
+import com.zcwipe.photoselector.adapter.PhotoAlbumAdapter;
 import com.zcwipe.photoselector.controller.AlbumController;
 import com.zcwipe.photoselector.model.ImageFolder;
 import com.zcwipe.photoselector.model.ImageModel;
@@ -34,7 +37,7 @@ import java.util.List;
  * 1 扫描图片文件夹
  * 2 最多图片设为当前文件夹
  */
-public class PhotoSelectorActivity extends Activity implements GridViewAdapter.OnItemClickImpl, View.OnClickListener {
+public class PhotoSelectorActivity extends Activity implements GridViewAdapter.OnItemClickImpl, View.OnClickListener, PhotoAlbumAdapter.OnItemClickImpl {
 
     private final static int HANDLE_SCAN_RECENT = 1001;//扫描最近新增图片
     private final static int HANDLE_SCAN_FOLDER = 1002;//扫描图片文件夹
@@ -45,8 +48,10 @@ public class PhotoSelectorActivity extends Activity implements GridViewAdapter.O
     public final static int MULTI_SELECETD = 2002;//多选
     private int mCurrentSelectMode = 2002;//默认多选
 
-    private GridView gv_photos;
-    private GridViewAdapter adapter;
+//    private GridView gv_photos;
+//    private GridViewAdapter adapter;
+    private RecyclerView gv_photos;
+    private PhotoAlbumAdapter adapter;
     private LinearLayout ll_back;
     private RelativeLayout rl_album_folder;
 
@@ -139,7 +144,8 @@ public class PhotoSelectorActivity extends Activity implements GridViewAdapter.O
 
                 adapter.notifyDataSetChanged(mImgs, mCurrentFile.getAbsolutePath());
                 tv_album_folder.setText(mCurrentFile.getName());
-                tv_album_count.setText(adapter.getCount() + "");
+//                tv_album_count.setText(adapter.getCount() + "");
+                tv_album_count.setText(adapter.getItemCount() + "");
                 tv_number.setText("(0)");
                 mPopFolder.dismiss();
             }
@@ -147,7 +153,8 @@ public class PhotoSelectorActivity extends Activity implements GridViewAdapter.O
     }
 
     private void initView() {
-        gv_photos = findViewById(R.id.gv_photos);
+//        gv_photos = findViewById(R.id.gv_photos);
+        gv_photos = findViewById(R.id.recyclerView);
         tv_album_folder = findViewById(R.id.tv_album_folder);
         tv_album_count = findViewById(R.id.tv_album_count);
         tv_number = findViewById(R.id.tv_number);
@@ -159,7 +166,12 @@ public class PhotoSelectorActivity extends Activity implements GridViewAdapter.O
         controller = new AlbumController(this);
         mCurrentSelectMode = getIntent().getIntExtra(SELECTED_MODE, MULTI_SELECETD);
 
-        adapter = new GridViewAdapter(this, imageModels);
+
+        final GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 4);
+        gv_photos.setLayoutManager(gridLayoutManager);
+
+//        adapter = new GridViewAdapter(this, imageModels);
+        adapter = new PhotoAlbumAdapter(this, imageModels);
         tv_album_folder.setText("最近照片");
         gv_photos.setAdapter(adapter);
         adapter.setOnItemClickListener(this);
@@ -223,5 +235,10 @@ public class PhotoSelectorActivity extends Activity implements GridViewAdapter.O
             mCustomProgressDialog.dismiss();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
