@@ -1,5 +1,6 @@
 # photoselect
-本地相册 图片选择 大图预览
+1 本地相册 图片选择
+2 大图预览 支持缩放
 # 如何使用
 
 1 Add it in your root build.gradle at the end of repositories:
