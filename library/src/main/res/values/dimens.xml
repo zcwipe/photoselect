@@ -20,4 +20,7 @@
     <dimen name="gridview_item_horizontalSpacing">4dp</dimen>
     <dimen name="gridview_item_verticalSpacing">4dp</dimen>
     <dimen name="collection_photo_toolbar_height">45dp</dimen>
+
+    <dimen name="icon_size_super">64dp</dimen>
+
 </resources>

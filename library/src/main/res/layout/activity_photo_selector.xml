@@ -84,23 +84,10 @@
         android:layout_above="@+id/layout_toolbar_ar"
         android:layout_below="@+id/hl_head_ar">
 
-        <GridView
-            android:id="@+id/gv_photos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:clipToPadding="true"
-            android:descendantFocusability="beforeDescendants"
-            android:horizontalSpacing="4dp"
-            android:listSelector="@null"
-            android:numColumns="4"
-            android:verticalSpacing="@dimen/gridview_item_verticalSpacing"
-            android:visibility="gone"/>
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 

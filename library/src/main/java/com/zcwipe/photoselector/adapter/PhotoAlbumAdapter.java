@@ -1,14 +1,11 @@
 package com.zcwipe.photoselector.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -18,14 +15,18 @@ import com.zcwipe.photoselector.model.ImageModel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Version：1.0
+ * Created：2019/6/2 0002
+ * Author：KoalaWolf
+ * Description：相册recyclerview adapter
+ */
 public class PhotoAlbumAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     protected LayoutInflater mInflater;
     protected Context mContext;
     protected List<ImageModel> mDatas;
-    private int itemWidth;
-    private int horizentalNum = 4;
-    private AbsListView.LayoutParams itemLayoutParams;
+
 
     private boolean selected = true;//是否可选
 
@@ -58,33 +59,18 @@ public class PhotoAlbumAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.mInflater = LayoutInflater.from(context);
         this.mContext = context;
         this.mDatas = mDatas;
-        setItemWidth();
     }
 
-    /**
-     * 设置每一个Item的宽高
-     */
-    public void setItemWidth() {
-        int horizentalSpace = mContext.getResources().getDimensionPixelSize(R.dimen.gridview_item_horizontalSpacing);
-        DisplayMetrics metric = new DisplayMetrics();
-        ((Activity) mContext).getWindowManager().getDefaultDisplay().getMetrics(metric);
-        int screenWidth = metric.widthPixels;
-        this.itemWidth = (screenWidth - (horizentalSpace * (horizentalNum - 1))) / horizentalNum;
-//        this.itemWidth = screenWidth / horizentalNum;
-        this.itemLayoutParams = new AbsListView.LayoutParams(itemWidth, itemWidth);
-    }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        ViewHolder holder = ViewHolder.get(mContext, viewGroup, R.layout.item_gridview);
+        ViewHolder holder = ViewHolder.get(mContext, viewGroup, R.layout.item_photo_album);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-
-        viewHolder.itemView.setLayoutParams(itemLayoutParams);
 
         final ImageView item_iv = viewHolder.getView(R.id.item_iv);
         final ImageView item_check = viewHolder.getView(R.id.item_check);

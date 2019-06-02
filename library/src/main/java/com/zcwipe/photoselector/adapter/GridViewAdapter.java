@@ -21,7 +21,12 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/3/9/009.
  */
-
+/**
+ * Version：1.0
+ * Created：2019/6/2 0002
+ * Author：KoalaWolf
+ * Description：相册GridView adapter
+ */
 public class GridViewAdapter<T> extends CommonAdapter<T> {
 
     private int itemWidth;
@@ -98,7 +103,7 @@ public class GridViewAdapter<T> extends CommonAdapter<T> {
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = View.inflate(mContext, R.layout.item_gridview, null);
+            view = View.inflate(mContext, R.layout.item_photo_album, null);
             view.setLayoutParams(itemLayoutParams);
         }
         final ImageView item_iv = ViewHolder.get(view, R.id.item_iv);
