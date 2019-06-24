@@ -13,7 +13,7 @@ allprojects {
 }
 
 2 Add the dependency in your model build.gradle
- implementation 'com.github.zcwipe:photoselect:1.1.1'
+ implementation 'com.github.zcwipe:photoselect:1.2.0'
  
 3 startActivity(activity.this,PhotoSelectorActivity.class);
  
